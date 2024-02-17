@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk0ayr2ujvltf"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_75f32"]
+[ext_resource type="Texture2D" uid="uid://ccdfhxc774cd6" path="res://Assets/Basic_Background_WO_Water.png" id="2_tlmb5"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_75f32")
+
+[node name="BasicBackgroundWoWater" type="Polygon2D" parent="."]
+position = Vector2(1955, 653)
+texture = ExtResource("2_tlmb5")
+polygon = PackedVector2Array(640, 360, -640, 360, -640, -360, 640, -360)
+uv = PackedVector2Array(1280, 720, 0, 720, 0, 0, 1280, 0)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
