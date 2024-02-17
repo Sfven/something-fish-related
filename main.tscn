@@ -7,7 +7,7 @@
 script = ExtResource("1_75f32")
 
 [node name="BasicBackgroundWoWater" type="Polygon2D" parent="."]
-position = Vector2(1955, 653)
+position = Vector2(1975, 352)
 texture = ExtResource("2_tlmb5")
 polygon = PackedVector2Array(640, 360, -640, 360, -640, -360, 640, -360)
 uv = PackedVector2Array(1280, 720, 0, 720, 0, 0, 1280, 0)
