@@ -1,24 +1,20 @@
 @tool
 extends Node2D
 
-func _process(_delta):
+func _process(delta):
 	queue_redraw()
 	pass
 
-var coords_head : Array = [
-	[ 0, 500],  [ 5, 570 ],
-	[ 10,590 ], [ 15,600 ],
-	[ 20,610 ],  [ 25,620 ],
-	[ 30,630 ], [ 35,640 ],
-	[40,650], [45,660 ],
-	[ 50,670 ],  [55,680],
-	[60,690 ],  [65,700],
-	[ 70,700 ],  [ 75,700 ],
-	[ 80,710 ],  [ 85, 720 ],
-	[ 0,720 ]
-]
+var coords_sand : Array = [
+	[ 0, 550], [ 50, 550 ],
+	[ 80,550 ], [ 140, 575 ],
+	[ 170, 580 ], [ 200, 585 ],
+	[ 220, 590 ], [ 240, 600 ],
+	[ 260, 610 ], [ 280, 630 ],
+	[ 300, 670], [350, 700 ],
+	[ 400, 720 ], [ 0, 720 ]]
 
-var head : PackedVector2Array
+var sand : PackedVector2Array
 
 func float_array_to_Vector2Array(coords : Array) -> PackedVector2Array:
 	# Convert the array of floats into a PackedVector2Array.
@@ -29,12 +25,15 @@ func float_array_to_Vector2Array(coords : Array) -> PackedVector2Array:
 
 func _draw():
 	draw_rect(Rect2(0.0,0.0,1280,720),Color8(151,208,209,255))
+	draw_rect(Rect2(0.0,300.0,1280,420),Color8(0,106,148,255))
+	
+	sand = float_array_to_Vector2Array(coords_sand)
+	draw_polygon(sand, [Color8(243, 231, 189, 255)])
+	
+	draw_rect(Rect2(50,250.0,30, 375),Color8(166,94,53,255))
+	draw_circle(Vector2(65, 625), 15, Color8(166,94,53,255))
+	draw_rect(Rect2(225,250.0,30, 410),Color8(166,94,53,255))
+	draw_circle(Vector2(240, 660), 15, Color8(166,94,53,255))
 	draw_rect(Rect2(0.0,250.0,300,35),Color8(166,94,53,255))
 	draw_circle(Vector2(300,267.5), 17.5, Color8(166,94,53,255))
-	draw_rect(Rect2(50,250.0,30, 375),Color8(166,94,53,255))
-	draw_rect(Rect2(225,250.0,30, 410),Color8(166,94,53,255))
-	
-	head = float_array_to_Vector2Array(coords_head);
-	
-	draw_polygon(head, [Color.BLUE])
 
