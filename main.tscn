@@ -1,16 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk0ayr2ujvltf"]
+[gd_scene load_steps=6 format=3 uid="uid://bk0ayr2ujvltf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_75f32"]
 [ext_resource type="Texture2D" uid="uid://brsgd4kvmgqwm" path="res://Assets/Fish_1_O.png" id="2_3w1ma"]
 [ext_resource type="Script" path="res://Foreground.gd" id="3_flvsb"]
+[ext_resource type="Script" path="res://Hook.gd" id="3_kehei"]
+[ext_resource type="Texture2D" uid="uid://cufbtlnulicpl" path="res://Assets/Person_WFishing_Rod.png" id="5_2tn6c"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_75f32")
 
 [node name="Fish1O" type="Sprite2D" parent="."]
-position = Vector2(540, 461)
+position = Vector2(839, 466)
 scale = Vector2(3.54688, 3.25)
 texture = ExtResource("2_3w1ma")
 
+[node name="Hook" type="Sprite2D" parent="."]
+script = ExtResource("3_kehei")
+
 [node name="Foreground" type="Node2D" parent="."]
 script = ExtResource("3_flvsb")
+
+[node name="PersonWFishingRod" type="Sprite2D" parent="."]
+position = Vector2(323, 214)
+scale = Vector2(3, 3)
+texture = ExtResource("5_2tn6c")
