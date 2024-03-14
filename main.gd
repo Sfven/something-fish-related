@@ -1,6 +1,11 @@
 @tool
 extends Node2D
 
+#@export var fish_scene: PackedScene #import child script?
+
+#variables
+var fish_number = 0 #number of fish currently
+
 func _process(delta):
 	queue_redraw()
 	pass
@@ -37,3 +42,21 @@ func _draw():
 	draw_rect(Rect2(0.0,250.0,300,35),Color8(166,94,53,255))
 	draw_circle(Vector2(300,267.5), 17.5, Color8(166,94,53,255))
 
+func _on_spawn_timer_timeout():
+	
+	if fish_number < 3:
+		var new_fish = preload("res://fish.tscn").instantiate()
+		#var new_fish = fish_scene.instantiate() #instantiate creates a fish from the fish script
+		
+		var fish_spawn_location = $FishPath/FishSpawnLocation
+		fish_spawn_location.progress_ratio =randf() #pick a point on the FishPath
+		
+		var direction = fish_spawn_location.rotation + PI / 2
+		new_fish.position = fish_spawn_location.position
+		
+		var speed = randi_range(50,75) #fish speed range
+		new_fish.speed = speed	#initailizes the speed variable
+		
+		add_child(new_fish) #Adds new_fish node as a child of Node2D
+		move_child(new_fish, 4) #Moves the new_fish node to under the hook+timer+path above the foreground
+		fish_number += 1
