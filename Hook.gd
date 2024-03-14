@@ -29,12 +29,10 @@ func _process(delta):
 		if power == 912:
 			increasePower = false
 		if power == 0:
-			increasePower = true	
-		print(power)
+			increasePower = true
 	else:
 		if (power > 0 && !fishing):
 			throw = (power+35)/70
-			print(throw)
 			cast = true
 			fishing = true
 		if Input.is_action_pressed("ui_reel"):
@@ -66,7 +64,6 @@ func _process(delta):
 		if(reel):
 			reelVelocity.x += -0.002
 			reelVelocity.y += -0.002
-			print(hook_location)
 			if(hook_location.x > 480 && hook_location.y < 300):
 				reelVelocity.y = 0.0
 			velocity.x = 0
@@ -77,7 +74,6 @@ func _process(delta):
 		if(hook_location == HOOK_ORIGIN && fishing && !cast):
 			fishing = false
 			power = 0
-		print(velocity)
 		if(velocity.y > 1.3 && hook_location.y > 300):
 			velocity.y = 1.3
 		hook_location += velocity
