@@ -87,7 +87,7 @@ func _process(delta):
 		if(hook_location.y > 700):
 			hook_location.y = 700
 	queue_redraw()
-	
+
 func _draw():
 	var hook_center = Vector2(hook_location.x+3, hook_location.y+1)
 	draw_rect(Rect2(368,0,power, 20),Color8(34,139,34,255))
