@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Sprite2D
 
 const GRAVITY = 9.8
@@ -87,8 +87,6 @@ func _process(delta):
 		if(hook_location.y > 700):
 			hook_location.y = 700
 	queue_redraw()
-	pass
-	
 	
 func _draw():
 	var hook_center = Vector2(hook_location.x+3, hook_location.y+1)
