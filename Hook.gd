@@ -1,8 +1,10 @@
-@tool
+#@tool
 extends Sprite2D
 
 const GRAVITY = 9.8
 const HOOK_ORIGIN = Vector2(368,148)
+const REEL_VELOCITY = 500
+
 var hook_location = Vector2(368, 148)
 var velocity = Vector2(0, 0)
 var reelVelocity = Vector2(0, 0)
@@ -23,16 +25,17 @@ func _ready():
 func _process(delta):
 	if (Input.is_action_pressed("ui_cast") && !fishing):
 		if increasePower:
-			power+=1
+			power+=2
 		else:
-			power-=1
+			power-=2
 		if power == 912:
 			increasePower = false
 		if power == 0:
 			increasePower = true
 	else:
 		if (power > 0 && !fishing):
-			throw = (power+35)/70
+			##throw = (power+35)/70
+			throw = power * 1.40
 			cast = true
 			fishing = true
 		if Input.is_action_pressed("ui_reel"):
@@ -53,7 +56,7 @@ func _process(delta):
 			velocity.y = 0
 			cast = false
 		if(cast):
-			velocity.x = throw
+			velocity.x = throw * delta
 			velocity.y += delta * GRAVITY
 		if(hook_location.y >= 300 && fishing):
 			velocity.x = 0
@@ -62,8 +65,8 @@ func _process(delta):
 			velocity.x = 0
 			velocity.y += delta * GRAVITY
 		if(reel):
-			reelVelocity.x += -0.002
-			reelVelocity.y += -0.002
+			reelVelocity.x += -0.4 * delta
+			reelVelocity.y += -0.4 * delta
 			if(hook_location.x > 480 && hook_location.y < 300):
 				reelVelocity.y = 0.0
 			velocity.x = 0
@@ -74,8 +77,8 @@ func _process(delta):
 		if(hook_location == HOOK_ORIGIN && fishing && !cast):
 			fishing = false
 			power = 0
-		if(velocity.y > 1.3 && hook_location.y > 300):
-			velocity.y = 1.3
+		if(velocity.y > (9.8*delta) && hook_location.y > 300):
+			velocity.y = 9.8 * delta
 		hook_location += velocity
 		hook_location += reelVelocity
 		if(hook_location.x < 368):

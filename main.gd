@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node2D
 
 #@export var fish_scene: PackedScene #import child script?

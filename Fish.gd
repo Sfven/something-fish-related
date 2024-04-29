@@ -27,7 +27,7 @@ func _ready():
 
 func _draw():
 	drawn_fish = float_array_to_Vector2Array(coords_fish)
-	draw_polygon(drawn_fish,[Color.CRIMSON])
+	#draw_polygon(drawn_fish,[Color.CRIMSON])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
