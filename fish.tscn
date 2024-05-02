@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuok24bmwc0si"]
+[gd_scene load_steps=3 format=3 uid="uid://cuok24bmwc0si"]
 
 [ext_resource type="Script" path="res://Fish.gd" id="1_bgeim"]
+[ext_resource type="Texture2D" uid="uid://brsgd4kvmgqwm" path="res://Assets/Fish_1_O.png" id="2_kiqnq"]
 
 [node name="Fish" type="Node2D"]
 script = ExtResource("1_bgeim")
+
+[node name="Fish1O" type="Sprite2D" parent="."]
+position = Vector2(-14, 6.77626e-21)
+scale = Vector2(2.28125, 1.90625)
+texture = ExtResource("2_kiqnq")
+flip_v = true
